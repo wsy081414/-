@@ -44,22 +44,26 @@ protected:
 	void _CreateHuffmanTree(  T* arr, int size,const T& Invaild)
 	{
 		assert(arr);
-		
+		//给出仿函数，进行比较两个charinfo的count
 		struct NodeCompare
 		{
-			bool operator ()(const Node* a,const Node *b)
+			bool operator ()(const Node* a,const Node* b)
 			{
 				return a->_wight < b->_wight;
 			}
 		};
+
+		//建立最小堆
 		Heap<Node*, NodeCompare> h;
 
+		//把每个节点进行push进去堆中。
 		for (int i = 0; i < size; i++)
 		{
 			if (arr[i]!=Invaild)
 			h.Push(new Node(arr[i]));
 		}
 
+		//利用贪心算法实现哈夫曼树
 		while (h.Size() > 1)
 		{
 			Node *left = h.Top();

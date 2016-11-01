@@ -35,7 +35,7 @@ class Heap
 {
 public:
 	Heap() = default;
-	Heap(T *a, size_t size = 0)
+	Heap(const T *a, size_t size = 0)
 	{
 		_a.reserve(size);
 		for (size_t i = 0; i < size; i++)

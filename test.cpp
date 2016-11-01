@@ -1,12 +1,17 @@
 #pragma once
 #include"huffman.h"
 #include"FileCompress.h"
+#include<time.h>
 
 void test()
 { 
 	FileCompress h;
-	h.Compress("test.txt");
-	h.uncompression("test.compress");
+	clock_t start, finish;
+	start = clock();
+	h.Compress("s.mp4");
+	finish = clock();
+	cout << finish - start << endl;
+	h.uncompression("s.mp4.compress");
 	
 
 
